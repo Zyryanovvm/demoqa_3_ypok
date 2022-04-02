@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library' // Это значит что язык Ява
+}
+
+repositories {
+    mavenCentral()  //
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:6.3.5",  // Подключение библиотеки Selenide
+            "org.junit.jupiter:junit-jupiter:5.8.2", // Подключение библиотеки jUnit
+            "org.slf4j:slf4j-simple:1.7.36" // Подключение библиотеки
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
