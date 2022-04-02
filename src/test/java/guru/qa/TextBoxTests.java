@@ -36,9 +36,9 @@ public class TextBoxTests {
         $("#uploadPicture").uploadFromClasspath("1.png");       // Загружаю файл 1.png из папки Ресурсы
         $("#currentAddress").setValue("Lenina street 11");      // Ввожу данные
         $("#state").click();                                    // Кликаю на пиклист
-            $(byText("NCR")).click();                           // Ищу текст NCR и кликаю по нему!!!
+            $(byText("NCR")).click();                           // поиск текста NCR и кликаю по нему!!!
         $("#city").click();                                     // Кликаю на пиклист
-            $(byText("Delhi")).click();                         // Ищу текст Delfi и кликаю по нему!!!
+            $(byText("Delhi")).click();                         // поиск текст Delfi и кликаю по нему!!!
         $("[id=submit]").click();                               // Кликаю на Submit
 
         // Проверки корректности внесённых данных
