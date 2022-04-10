@@ -5,6 +5,7 @@ import java.util.Random;
 import static java.lang.String.format;
 
 public class RandomUtils {
+
     public static String getRandomStringName() {
         int length = getRandomInt(1,255);
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstqvwxyz";
