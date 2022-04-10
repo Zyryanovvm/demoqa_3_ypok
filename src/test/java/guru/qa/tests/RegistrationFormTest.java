@@ -2,9 +2,12 @@ package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.github.javafaker.Faker;
 import guru.qa.utils.RandomUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -12,11 +15,14 @@ import static com.codeborne.selenide.Selenide.*;
 import static java.lang.String.format;
 
 public class RegistrationFormTest {
+    Faker fakerRu = new Faker(new Locale("ru"));
+
     String fname = RandomUtils.getRandomStringName(),
-            lname = RandomUtils.getRandomStringName(),
+            lname = fakerRu.name().lastName(),
             email = RandomUtils.getRandomEmail(),
             fullName = format("%s %s", fname, lname),
-            phoneNumber = RandomUtils.getRandomPhoneNumbers();
+            phoneNumber = RandomUtils.getRandomPhoneNumbers(),
+            currentAddress = fakerRu.address().fullAddress();
 
     @BeforeAll
     public static void settings() {
@@ -44,7 +50,7 @@ public class RegistrationFormTest {
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
-        $("#currentAddress").setValue("Lenina street 11");
+        $("#currentAddress").setValue(currentAddress);
         $("#state").click();
         $("#react-select-3-option-2").click();
         $("#city").click();
@@ -55,8 +61,7 @@ public class RegistrationFormTest {
         $(".table-responsive").shouldHave(text("Student Name	" + fullName),
                 text("Mobile " + phoneNumber), text("Picture	1.PNG"), text("Student Email " + email),
                 text("Gender Female"), text("Date of Birth 15 January,1995"), text("Subjects English"),
-                text("Hobbies Music"), text("Address Lenina street 11"), text("State and City Haryana Panipat"));
-
+                text("Hobbies Music"), text("Address " + currentAddress), text("State and City Haryana Panipat"));
 
 
         $("#closeLargeModal").click();

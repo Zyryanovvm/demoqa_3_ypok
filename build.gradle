@@ -10,7 +10,8 @@ dependencies {   // Подключение зависимостей
     testImplementation(   // Который нужны для теста
             "com.codeborne:selenide:6.3.5",  // Подключение библиотеки Selenide
             "org.junit.jupiter:junit-jupiter:5.8.2", // Подключение библиотеки jUnit
-            "org.slf4j:slf4j-simple:1.7.36" // Подключение библиотеки slf4j
+            "org.slf4j:slf4j-simple:1.7.36", // Подключение библиотеки slf4j
+            "com.github.javafaker:javafaker:1.0.2"
     )
 }
 
